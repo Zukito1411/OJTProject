@@ -17,6 +17,9 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AttendanceChartComponent } from './attendance-chart/attendance-chart.component';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './admin/component/login/auth.service';
 
 const routes: Routes = [
   {
@@ -59,13 +62,15 @@ const routes: Routes = [
     BrowserModule,
     MatFormFieldModule,
     FormsModule,
+    CommonModule,
     AppRoutingModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
 
   ],
-  providers: [],
+  providers: [AuthService], // add AuthService to the providers array
   bootstrap: [AppComponent]
 })
 export class AppModule { }

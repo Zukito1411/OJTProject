@@ -14,12 +14,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CalendarComponent } from './calendar/calendar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; // Add this import
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AttendanceChartComponent } from './attendance-chart/attendance-chart.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './admin/component/login/auth.service';
+import { LoginComponent } from './admin/component/login/login.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,7 @@ const routes: Routes = [
     FacultyComponent,
     ScheduleComponent,
     HomeComponent,
+    LoginComponent,
     AccountcreateComponent,
     SidebarComponent,
     DashboardComponent,
@@ -61,7 +63,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     MatFormFieldModule,
-    FormsModule,
+    FormsModule, // Add this line
     CommonModule,
     AppRoutingModule,
     MatDatepickerModule,

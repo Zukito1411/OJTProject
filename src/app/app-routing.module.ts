@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { AccountcreateComponent } from './home/accountcreate/accountcreate.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './admin/component/login/auth.service';
-
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -24,7 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),FormsModule],
   exports: [RouterModule],
   providers: [AuthService]
 })

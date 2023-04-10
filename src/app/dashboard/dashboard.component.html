@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
   <head>
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="dashboard.component.css">
@@ -7,7 +8,7 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
   </head>
- 
+
   <body>
     <div class="CICT-Head">
       <img src="assets/CICT.png" class="CICT-Image">
@@ -20,12 +21,12 @@
     <div class="CICT-Head2">
       <h3>Dashboard</h3>
     </div>
-    
-    
-    
+
+
+
     <div class="dashboard">
       <div class="welcome-admin text-center">
-        <h2>Welcome Admin,  {{ currentAdmin }}</h2>
+        <h2>Welcome Admin,</h2>
         <p>Today is {{ currentDate | date:'mediumDate' }}</p>
         <div class="clock">
           <span class="time">{{ currentDate | date:'shortTime' }}</span>

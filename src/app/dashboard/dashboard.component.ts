@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { AttendanceChartComponent } from '../attendance-chart/attendance-chart.component';
 
+interface SideBarToggle {
+  screenWidth: number;
+  collapsed: boolean;
+
+}
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,5 +13,10 @@ import { AttendanceChartComponent } from '../attendance-chart/attendance-chart.c
 })
 export class DashboardComponent {
   currentDate = new Date();
-  currentAdmin: string = "John Doe";
+  isSideBarCollapsed = false;
+  screenWidth = 0;
+
+  onToggleSideBar(): void {
+    // Add implementation for the method here
+  }
 }

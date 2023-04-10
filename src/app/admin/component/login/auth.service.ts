@@ -9,13 +9,14 @@ export class AuthService {
 
   constructor() { }
 
-  public login(username: string, password: string): boolean {
+  public login(username: string, password: string): string | null {
     if (username === this.defaultUsername && password === this.defaultPassword) {
       localStorage.setItem('isLoggedIn', 'true');
-      return true;
+      return null;
     }
-    return false;
+    return 'Incorrect username or password';
   }
+
 
   public isLoggedIn(): boolean {
     return localStorage.getItem('isLoggedIn') === 'true';

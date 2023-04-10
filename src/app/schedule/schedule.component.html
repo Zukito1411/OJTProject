@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
   <style>header {
     display: flex;
     justify-content: space-between;
@@ -53,7 +54,7 @@
 
 
   <body>
-    <main> 
+    <main>
       <form class="box">
         <div class="mbox">
           <label for="date">Date:</label>

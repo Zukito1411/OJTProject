@@ -1,0 +1,48 @@
+.home{
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #fff;
+    background-color: #ff8800;
+    border-radius: 4px;
+    padding: 8px 41px;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    
+}
+
+.box{
+    width: 100%; width: 300px; height: 100%;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+
+  
+}
+
+.mbox{
+  width: 100%; width: 300px; height: 100%;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 16px;
+  border: 2px solid #ff8800;
+  outline: none;
+  padding: 8px 41px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px 0px #000000a6;
+}
+
+.sub{
+  box-shadow: 0px 4px 10px 0px #000000a6;
+}
+
+.fot{
+  text-decoration: none;
+  font-size: 0.875em;
+}
+
+
+
+

@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'login', component: LoginComponent },
   { path: 'faculty', component: FacultyComponent },
-  { path: 'home', component: FacultyComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'accountcreate', component: AccountcreateComponent },
   { path: 'inventory', component: InventoryComponent },
   { path: 'schedule', component: ScheduleComponent },

@@ -1,89 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
-  <style>header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #ff8800;
-  }
-
-  nav ul {
-    display: flex;
-    list-style: none;
-  }
-
-  nav li {
-    margin-right: 20px;
-  }
-
-  main {
-    padding: 20px;
-    background-color: #fff;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  label {
-    font-weight: bold;
-  }
-
-  input[type="submit"] {
-    padding: 10px;
-    background-color: #ff8800;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  footer {
-    padding: 10px;
-    background-color: #f2f2f2;
-    text-align: center;
-  }
-  </style>
   <head>
-    <title>Scheduling Management</title>
+    <title>Faculty and Schedule Management - Schedule</title>
+    <link rel="stylesheet" href="schedule.component.css">
   </head>
-
-
   <body>
-    <main>
-      <form class="box">
-        <div class="mbox">
-          <label for="date">Date:</label>
-          <input type="date" id="date" name="date" class = "mid">
-        </div><br><br>
-        <div class="mbox">
-          <label for="time">Time:</label>
-          <input type="time" id="time" name="time" class = "mid">
-        </div><br><br>
-        <div class="mbox">
-          <label for="event">Event:</label>
-          <input type="text" id="event" name="event" >
-        </div><br><br>
-        <input type="submit" class="sub" value="Add Event" >
-        <br><br>
-      </form>
-    </main>
+    <div class="CICT-Head">
+      <img src="assets/CICT.png" class="CICT-Image">
+      <h1>College of Information Communications Technology</h1>
+      <p>Class Monitoring and Key Inventory System</p>
+      <img src="assets/bell.png" class="CICT-Bell">
+      <img src="assets/account.png" class="CICT-Account">
+      <img src="assets/down-arrow.png" class="CICT-Arrow">
+    </div>
+    <div class="container">
+      <div class="nav">
+        <a href="faculty">Faculty</a>
+        <a href="schedule" class="active">Schedule</a>
+        <div class="form">
+          <input type="text" placeholder="Search...">
+          <button>🔍Search</button>
+        </div>
+      </div>
+    </div>
+    <form class="box">
+      <div class="mbox">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" [(ngModel)]="newDate" class="mid" style="resize: horizontal;">
+      </div><br><br>
+      <div class="mbox">
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" [(ngModel)]="newTime" class="mid" style="resize: horizontal;">
+      </div><br><br>
+      <div class="mbox">
+        <label for="event">Event:</label>
+        <input type="text" id="event" name="event" [(ngModel)]="newEvent" style="resize: horizontal;">
+      </div><br><br>
+      <button type="button" class="sub" value="Add Event" (click)="addEvent(newDate, newTime, newEvent)">
+<img src="assets/add-event.png" alt="Add Event"> Add Event</button>
 
+      <br><br> <table class="schedule">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Event</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events; let i = index">
+          <td>{{ event.date }}</td>
+          <td>{{ event.time }}</td>
+          <td>{{ event.event }}</td>
+          <td>
+            <button (click)="deleteEvent(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </form>
   </body>
-  <footer>
-    <p class="fot">&copy; 2023 CMKIS</p>
-    <nav>
-      <ul>
-        <li><a href="#" class="fot">Privacy Policy</a></li>
-        <li><a href="#" class="fot">Terms of Service</a></li>
-        <li><a href="#" class="fot">Contact Us</a></li>
-      </ul>
-    </nav>
-  </footer>
-
 </html>
 

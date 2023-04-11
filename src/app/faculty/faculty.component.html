@@ -1,76 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
   <app-sidebar (onToggleSideBar)="onToggleSideBar()"></app-sidebar>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Faculty Management System</title>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Faculty</a></li>
-        <li><a href="#">Courses</a></li>
-        <li><a href="#">Timetable</a></li>
-        <li><a href="#">Reports</a></li>
-      </ul>
-    </nav>
-    <main>
-      <section id="dashboard">
-        <!-- code for dashboard section goes here -->
-      </section>
-      <section id="faculty">
-        <!-- code for faculty management section goes here -->
-      </section>
-      <section id="courses">
-        <!-- code for courses section goes here -->
-      </section>
-      <section id="timetable">
-        <!-- code for timetable section goes here -->
-      </section>
-      <section id="reports">
-        <!-- code for reports section goes here -->
-      </section>
-    </main>
-<style>/* style the header section */
-  header {
-    background-color: #F5F5F5;
-    text-align: center;
-    padding: 10px;
-  }
+<head>
+	<title>Faculty and Schedule Management</title>
+	<link rel="stylesheet" href="faculty.component.css">
+</head>
+<div class="CICT-Head">
+  <img src="assets/CICT.png" class="CICT-Image">
+  <h1>College of Information Communications Technology</h1>
+  <p>Class Monitoring and Key Inventory System</p>
+  <img src="assets/bell.png" class="CICT-Bell">
+  <img src="assets/account.png" class="CICT-Account">
+  <img src="assets/down-arrow.png" class="CICT-Arrow">
+</div>
+<body>
+	<div class="container">
+		<div class="nav">
+			<a href="faculty" class="active">Faculty</a>
+			<a href="schedule">Schedule</a>
+			<div class="form">
+				<input type="text" placeholder="Search...">
+				<button>🔍Search</button>
+			</div>
+		</div>
+		<section class ="box"id="faculty">
+      <button class="addFaculty" (click)="addFaculty()">
+        <img src="assets/add-group.png" alt="Add Faculty">
+        Add Faculty
+      </button>
 
-  /* style the navigation menu */
-  nav {
-    background-color: #ff7300;
-    color: #fff;
-    padding: 10px;
-  }
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>ID Number</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let faculty of facultyList; let i=index">
+            <tr *ngIf="editingFaculty === faculty; else showFacultyData">
+              <td>{{i + 1}}</td>
+              <td><input type="text" [(ngModel)]="id"></td>
+              <td><input type="text" [(ngModel)]="name"></td>
+              <td><input type="text" [(ngModel)]="email"></td>
+              <td class="action-buttons">
+                <button class="save" (click)="saveFaculty()">Save</button>
+                <button class="cancel" (click)="cancelEdit()">Cancel</button>
+              </td>
+            </tr>
+            <ng-template #showFacultyData>
+              <tr>
+                <td>{{i + 1}}</td>
+                <td>{{faculty.id}}</td>
+                <td>{{faculty.name}}</td>
+                <td>{{faculty.email}}</td>
+                <td class="action-buttons">
+                  <button class="edit" (click)="editFaculty(faculty)">Edit</button>
+                  <button class="delete" (click)="deleteFaculty(faculty)">Delete</button>
+                </td>
+              </tr>
+            </ng-template>
+          </ng-container>
+        </tbody>
+      </table>
+    </section>
 
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav li {
-    display: inline-block;
-    margin-right: 20px;
-  }
-
-  nav li a {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  nav li a:hover {
-    text-decoration: underline;
-  }
-
-  /* style the main section */
-  main {
-    padding: 20px;
-  }
-  </style>
-  </body>
+	</div>
+</body>
 </html>
+

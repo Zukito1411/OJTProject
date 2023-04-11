@@ -1,19 +1,21 @@
 .sidebar{
   background: #2D343E;
   transition: all .3s ease;
-  position: sticky;
+  position: static;
   float:left;
   z-index: 1;
+  margin-top: 80px;
   margin-right: 10px;
+  height: auto;
   top: 10.4%;
   width: 5rem;
-  height: 100vh;
   box-shadow: 3px 0 5px 0 #869083;
+  border-radius: 20px;
 }
 
 .logo-cict{
   margin: 0 21px;
-  width: 35px; 
+  width: 35px;
   height: 35px;
   border-color: transparent;
 }
@@ -24,9 +26,16 @@
   border-radius: 0;
   width: 100%;
 }
+.logo-container .logo{
+
+  border-radius: 20px;
+  border-color: transparent;
+  background-color: transparent;
+
+}
 .logo-text{
   margin-left: 2.75rem;
-  
+
   font-size: 24px;
   font-weight: 700;
   color: #fff;
@@ -92,5 +101,6 @@
 }
 
 .sidebar-nav-link:hover{
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(163, 163, 163, 0.349);
+  border-radius: 20px;
 }
